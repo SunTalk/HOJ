@@ -7,8 +7,6 @@ using namespace std;
 
 #define USE_CPPIO() ios_base::sync_with_stdio(0); cin.tie(0)
 
-#define MAX  100000
-
 int main(int argc, char const *argv[])
 {
 	#ifdef DBG
@@ -16,15 +14,24 @@ int main(int argc, char const *argv[])
 	freopen("hoj" PROBLEM ".out", "w", stdout);
 	#endif
 
-	int number;
-	int list[MAX+5],i;
-
+	int times,number;
+	vector <int> list;
+	scanf("%d",&times);
+	times--;
 	scanf("%d",&number);
+	list.push_back(number);
 
-	for( i = 0 ; i < number ; i++ ){
+	while( times-- ){
 		
-	}
+		scanf("%d",&number);
+		if( number > list.back() )
+			list.push_back(number);
+		else
+			*lower_bound(list.begin(),list.end(),number) = number;
 
+	}
+	
+	printf("%d\n",list.size() );
 
 	return 0;
 }
