@@ -21,6 +21,10 @@ int main(int argc, char const *argv[])
 	scanf("%d",&number);
 	list.push_back(number);
 
+	// for(int i : list)
+	// 		cout << i << ' ';
+	// cout << '\n';
+
 	while( times-- ){
 		
 		scanf("%d",&number);
@@ -29,6 +33,9 @@ int main(int argc, char const *argv[])
 		else
 			*lower_bound(list.begin(),list.end(),number) = number;
 
+		// for(int i : list)
+		// 	cout << i << ' ';
+		// cout << '\n';
 	}
 	
 	printf("%d\n",list.size() );
