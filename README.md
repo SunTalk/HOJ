@@ -5,5 +5,6 @@
 * [x] Problem : 38 - 職棒簽約問題
 * [x] Problem : 41 - 烤箱
 * [x] Problem : 144 - 海綿寶寶之吹泡泡
+* [ ] Problem : 206 - 巧拼圖問題
 * [x] Problem : 423 - Cao-Chong Weighed the Elephant
 * [ ] Problem : 431 - 找質數
