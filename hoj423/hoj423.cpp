@@ -62,7 +62,6 @@ int main(int argc, char const *argv[])
 			if( bag[i][1] == i )
 				ans++;
 		
-		
 		printf("%d\n",ans );
 
 	}
