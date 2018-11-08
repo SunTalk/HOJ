@@ -27,12 +27,10 @@ int main(int argc, char const *argv[])
 			scanf("%d",&rock[i].second);
 
 		memset(bag,0,sizeof(bag));
-		int check = 1;
 		int tmp;
 
 		for( i = 1 ; i <= number ; i++ ){
 			tmp = 1;
-			check = 1;
 			while( tmp <= rock[i].second ){
 
 				for( j = 1 ; j <= weight ; j++  )
