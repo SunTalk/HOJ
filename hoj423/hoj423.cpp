@@ -14,10 +14,10 @@ int main(int argc, char const *argv[])
 	freopen("hoj" PROBLEM ".out", "w", stdout);
 	#endif
 
-	int bag[100005][2];
+	int bag[100010][2];
 	pair<int,int> rock[105];//weight,num
 	int number,weight;
-	int i,j,k;
+	int i,j;
 
 	while( ~scanf("%d %d",&number,&weight) && number && weight ){
 
@@ -33,27 +33,28 @@ int main(int argc, char const *argv[])
 		for( i = 1 ; i <= number ; i++ ){
 			tmp = 1;
 			check = 1;
-			while(1){
-				if( tmp == 0 )
-					break;
+			while( tmp <= rock[i].second ){
 
-				for( k = 1 ; k <= weight ; k++  )
-					if( k >= rock[i].first*tmp )
-						bag[k][1] = max( bag[k-rock[i].first*tmp][0] + rock[i].first*tmp , bag[k][0] );
-				for( k = 1 ; k <= weight ; k++ )
-					bag[k][0] = bag[k][1];
+				for( j = 1 ; j <= weight ; j++  )
+					if( j >= rock[i].first*tmp )
+						bag[j][1] = max( bag[j-rock[i].first*tmp][0] + rock[i].first*tmp , bag[j][0] );
+				
+				for( j = 1 ; j <= weight ; j++ )
+					bag[j][0] = bag[j][1];
 
-				if(check == 2)
-					break;
-				else if( rock[i].second - tmp*2 + 1 <= tmp*2 ){
-					tmp = rock[i].second - tmp*2 + 1;
-					check = 2;
-				}
-				else
-					tmp = tmp*2;
+				rock[i].second = rock[i].second - tmp;
+				tmp = tmp*2;
 
 			}
-			
+			if( rock[i].second > 0 ){
+				tmp = rock[i].second;
+				for( j = 1 ; j <= weight ; j++  )
+					if( j >= rock[i].first*tmp )
+						bag[j][1] = max( bag[j-rock[i].first*tmp][0] + rock[i].first*tmp , bag[j][0] );
+				
+				for( j = 1 ; j <= weight ; j++ )
+					bag[j][0] = bag[j][1];
+			}		
 		}
 
 		int ans = 0;
