@@ -28,10 +28,8 @@ int main(int argc, char const *argv[])
 			scanf("%d %d",&money,&power);
 
 			for( j = 1 ; j <= budget ; j++ )
-				if( j >= money ){
-					ans[j][1] = max( ans[j][1] , ans[j][0] );
+				if( j >= money )
 					ans[j][1] = max( ans[j][1] , ans[j-money][0]+power );
-				}
 
 		}
 
