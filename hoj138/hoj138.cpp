@@ -42,7 +42,7 @@ int main(int argc, char const *argv[])
 	for( i = 0 ; i < path ; i++ ){
 		scanf("%d %d %d",&one,&two,&len);
 		con[one].emplace_back(two,len);
-		con[two].emplace_back(one,len);
+		// con[two].emplace_back(one,len);
 	}
 
 	priority_queue <edge> dijkstra;
